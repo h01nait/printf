@@ -14,7 +14,6 @@ int _puts(char *str)
 		_putchar(*str++);
 	return (str - a);
 }
-
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
@@ -36,4 +35,5 @@ int _putchar(int c)
 		buf[i++] = c;
 	return (1);
 }
+
 
