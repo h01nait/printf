@@ -45,6 +45,7 @@ char *convert(long int num, int base, int flags, params_t *params)
  *
  * Return: bytes printed
  */
+
 int print_unsigned(va_list ap, params_t *params)
 {
 	unsigned long l;
@@ -59,8 +60,6 @@ int print_unsigned(va_list ap, params_t *params)
 	return (print_number(convert(l, 10, CONVERT_UNSIGNED, params), params));
 }
 
-
-
 /**
  * print_address - prints address
  * @ap: argument pointer
@@ -68,6 +67,7 @@ int print_unsigned(va_list ap, params_t *params)
  *
  * Return: bytes printed
  */
+
 int print_address(va_list ap, params_t *params)
 {
 	unsigned long int n = va_arg(ap, unsigned long int);
