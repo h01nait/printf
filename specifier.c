@@ -21,6 +21,8 @@ int (*get_specifier(char *s))(va_list ap, params_t *params)
 		{"X", print_HEX},
 		{"p", print_address},
 		{"S", print_S},
+		{"r", print_rev},
+		{"R", print_rot13},
 		{NULL, NULL}
 	};
 	int i = 0;
@@ -98,12 +100,12 @@ int get_modifier(char *s, params_t *params)
 
 	switch (*s)
 	{
-	case 'h':
-		i = params->h_modifier = 1;
-		break;
-	case 'l':
-		i = params->l_modifier = 1;
-		break;
+		case 'h':
+			i = params->h_modifier = 1;
+			break;
+		case 'l':
+			i = params->l_modifier = 1;
+			break;
 	}
 	return (i);
 }
@@ -133,3 +135,6 @@ char *get_width(char *s, params_t *params, va_list ap)
 	params->width = d;
 	return (s);
 }
+
+
+
