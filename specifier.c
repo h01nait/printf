@@ -8,6 +8,7 @@
  */
 int (*get_specifier(char *s))(va_list ap, params_t *params)
 {
+	int i = 0;
 	specifier_t specifiers[] = {
 		{"c", print_char},
 		{"d", print_int},
@@ -21,19 +22,15 @@ int (*get_specifier(char *s))(va_list ap, params_t *params)
 		{"X", print_HEX},
 		{"p", print_address},
 		{"S", print_S},
-		{"r", print_rev},
-		{"R", print_rot13},
-		{NULL, NULL}
-	};
-	int i = 0;
+		{NULL, NULL}};
 
-	while (specifiers[i].specifier)
+
+	for (; specifiers[i].specifier; i++)
 	{
-		if (*s == specifiers[i].specifier[0])
+		if (*s == *(specifiers[i].specifier))
 		{
 			return (specifiers[i].f);
 		}
-		i++;
 	}
 	return (NULL);
 }
@@ -135,6 +132,4 @@ char *get_width(char *s, params_t *params, va_list ap)
 	params->width = d;
 	return (s);
 }
-
-
 
